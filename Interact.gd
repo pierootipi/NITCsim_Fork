@@ -3,9 +3,9 @@ extends Node2D
 
 
 func _on_academic_building_body_entered(body : Player):
-	print("area enterd")
+	print("Area entered")
 	
-	body.show_interact_labeal()
+	body.show_interact_label()
 	pass # Replace with function body.
 
 
