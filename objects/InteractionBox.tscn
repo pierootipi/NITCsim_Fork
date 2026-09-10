@@ -1,0 +1,13 @@
+[gd_scene format=3 uid="uid://cgam6027w0fmx"]
+
+[ext_resource type="Script" uid="uid://d86btchlufxu" path="res://object_scripts/interaction_box.gd" id="1_1dqq6"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_yi2mw"]
+
+[node name="InteractionBox" type="Area2D" unique_id=640951214]
+script = ExtResource("1_1dqq6")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=790279068]
+shape = SubResource("RectangleShape2D_yi2mw")
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]

@@ -1,4 +1,6 @@
 extends CharacterBody2D
+class_name Player
+
 @onready var anim = $AnimatedSprite2D
 @onready var interact_label: Label = $Label
 @onready var start_ui = $"../StartUI"
