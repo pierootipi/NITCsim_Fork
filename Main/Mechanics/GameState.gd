@@ -7,8 +7,6 @@ var is_game_active := false
 var is_paused := false
 var current_pause_ui = null
 
-var pending_exit_marker: String = ""
-
 func _ready():
 	process_mode = Node.PROCESS_MODE_ALWAYS
 	set_process(true)
