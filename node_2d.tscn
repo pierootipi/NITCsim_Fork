@@ -1,9 +1,0 @@
-[gd_scene format=3 uid="uid://cm6vn8u6113m3"]
-
-[ext_resource type="PackedScene" uid="uid://dowo3akgnenk0" path="res://Playable_scenes/main_map.tscn" id="1_wtcfe"]
-
-[node name="Game" type="Node2D" unique_id=1402332461]
-
-[node name="world_manager" type="Node2D" parent="." unique_id=977827416]
-
-[node name="Main_Map" parent="world_manager" unique_id=253961186 instance=ExtResource("1_wtcfe")]
