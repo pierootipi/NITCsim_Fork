@@ -1,5 +1,5 @@
 extends Area2D
-class_name Door
+class_name InteractionBox
 
 
 # Supports either an exported .tscn file or a PackedScene resource
