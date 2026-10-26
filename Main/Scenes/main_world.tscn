@@ -5,7 +5,6 @@
 [ext_resource type="Texture2D" uid="uid://ciofh3kv5yaiq" path="res://Assets/sprite/Tilemap/sprites/rndomhouse.png" id="2_42jam"]
 [ext_resource type="Texture2D" uid="uid://c5n5qvms48yww" path="res://Assets/sprite/Tilemap/tilemap_packed.png" id="3_k5cj5"]
 [ext_resource type="Texture2D" uid="uid://dokkuspvcrc8d" path="res://Assets/World/Sample.png" id="4_lyqml"]
-[ext_resource type="PackedScene" uid="uid://bhe6171ekahue" path="res://Scenes/player/player.tscn" id="5_oxewe"]
 [ext_resource type="PackedScene" uid="uid://vblr75gchbxf" path="res://Scenes/World/Buildings/Acad_building/academic_building.tscn" id="6_kyray"]
 
 [sub_resource type="CompressedTexture2D" id="CompressedTexture2D_d21ai"]
@@ -3182,56 +3181,6 @@ use_parent_material = true
 tile_map_data = PackedByteArray("AAAZAAoAAAAGAAcAAAAcAAkAAAAGAAcAAAAaAA4AAAAGAAcAAAAdABAAAAAGAAcAAAAaABIAAAAGAAcAAAAZABYAAAAGAAcAAAAdABQAAAAGAAcAAAAcAAUAAAAGAAcAAAAZAAYAAAAKAAcAAAAcAAwAAAAKAAcAAADv/wQAAAAKAAcAAADs/w0AAAAKAAcAAADw/xEAAAAKAAcAAAD//+3/AAAKAAcAAAD6/+n/AAAGAAcAAAAhABMAAAAAAAUAAAAiAAkAAAAAAAUAAADs/xMAAAAAAAUAAADs/wYAAAAAAAUAAAAgAAIAAAAIAAYAAAAbAOn/AAAAAAUAAAAhAOL/AAAAAAUAAADx/+b/AAAAAAUAAADy//j/AAAGAAcAAADr//v/AAAGAAcAAADs/+n/AAAGAAcAAAAgAOn/AAAGAAcAAAAcAOL/AAAGAAcAAAAZAN7/AAAGAAcAAAAeAN3/AAAGAAcAAAD5/+X/AAAKAAcAAADn/9T/AAAGAAcAAADp/9j/AAAGAAcAAADp/83/AAAGAAcAAADs/8n/AAAGAAcAAAD3/8v/AAAGAAcAAADw/83/AAAGAAcAAAD//8n/AAAGAAcAAAABAMz/AAAGAAcAAAAXAMn/AAAGAAcAAAAdAMz/AAAGAAcAAAAjAMf/AAAGAAcAAAAqAM3/AAAGAAcAAAAsANX/AAAGAAcAAAAoANz/AAAGAAcAAAArAN3/AAAGAAcAAAArANn/AAAKAAcAAAApANH/AAAKAAcAAAAYAMz/AAAKAAcAAAD6/8z/AAAKAAcAAADy/8r/AAAKAAcAAAAFAMj/AAAAAAUAAAAlAM3/AAAAAAUAAAA=")
 tile_set = SubResource("TileSet_4d7sh")
 
-[node name="StartUI" type="CanvasLayer" parent="." unique_id=1139255326]
-
-[node name="Continue_button" type="Button" parent="StartUI" unique_id=431710151]
-offset_left = 379.0
-offset_top = 57.999992
-offset_right = 474.00003
-offset_bottom = 89.0
-text = "Continue"
-
-[node name="New_game_button" type="Button" parent="StartUI" unique_id=2036063627]
-offset_left = 380.0
-offset_top = 98.0
-offset_right = 474.00003
-offset_bottom = 129.0
-text = "New Game"
-
-[node name="Quitbutton" type="Button" parent="StartUI" unique_id=1843587897]
-offset_left = 379.0
-offset_top = 139.0
-offset_right = 474.0
-offset_bottom = 170.0
-text = "Quit"
-
-[node name="PauseUI" type="CanvasLayer" parent="." unique_id=1113987660]
-process_mode = 2
-
-[node name="Quitbutton" type="Button" parent="PauseUI" unique_id=181025031]
-process_mode = 3
-offset_left = 383.0
-offset_top = 237.0
-offset_right = 474.0
-offset_bottom = 268.0
-text = "Quit"
-
-[node name="Continuebutton" type="Button" parent="PauseUI" unique_id=872476605]
-process_mode = 3
-offset_left = 382.0
-offset_top = 199.0
-offset_right = 474.0
-offset_bottom = 230.0
-text = "Continue"
-
-[node name="Savebutton" type="Button" parent="PauseUI" unique_id=1250092399]
-process_mode = 3
-offset_left = 381.0
-offset_top = 159.0
-offset_right = 475.0
-offset_bottom = 190.0
-text = "Save Game"
-
 [node name="Academic building" parent="." unique_id=145569419 instance=ExtResource("6_kyray")]
 position = Vector2(-232, 177)
 scale = Vector2(1.7, 1.7)
@@ -3241,6 +3190,3 @@ position = Vector2(-37.647034, 84.70589)
 
 [node name="SpawnPoint" type="Marker2D" parent="." unique_id=904757737]
 position = Vector2(-180, 426)
-
-[node name="player" parent="." unique_id=2069761242 instance=ExtResource("5_oxewe")]
-position = Vector2(223, 216)

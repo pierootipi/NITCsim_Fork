@@ -3,48 +3,57 @@ class_name Player
 
 @onready var anim = $AnimatedSprite2D
 @onready var interact_label: Label = $Label
-@onready var start_ui = $"../StartUI"
-@onready var pause_ui = get_node_or_null("../PauseUI")
+@onready var start_ui = $StartUI
+@onready var pause_ui = $PauseUI
 
 const SPEED = 100
 var current_dir = "down"
 var can_interact := false
 
+var curr_scene : String = "res://Scenes/main_world.tscn"
 var door_used
 
+# set authority
+func _enter_tree():
+	set_multiplayer_authority(name.to_int())
 
 func _ready():
+	
+	$Camera2D.enabled = is_multiplayer_authority()
+	position = WorldManager.get_spawn_point()
 	interact_label.visible = false
 
-	GameState.setup_pause_ui(pause_ui, self)
+	#GameState.setup_pause_ui(pause_ui, self)
+#
+	#if GameState.save_data:
+		#position = Vector2(
+			#GameState.save_data.position.x,
+			#GameState.save_data.position.y
+		#)
+#
+		#current_dir = GameState.save_data.direction
+		#GameState.is_game_active = true
+		#GameState.save_data = null
+#
+		#if start_ui:
+			#start_ui.hide()
+#
+		#if pause_ui:
+			#pause_ui.hide()
+#
+	#elif GameState.is_game_active:
+		#if start_ui:
+			#start_ui.hide()
+#
+	#else:
+		#if start_ui:
+			#start_ui.show()
+			#GameState.setup_start_ui(start_ui)
+		#else:
+			#GameState.is_game_active = true
 
-	if GameState.save_data:
-		position = Vector2(
-			GameState.save_data.position.x,
-			GameState.save_data.position.y
-		)
-
-		current_dir = GameState.save_data.direction
-		GameState.is_game_active = true
-		GameState.save_data = null
-
-		if start_ui:
-			start_ui.hide()
-
-		if pause_ui:
-			pause_ui.hide()
-
-	elif GameState.is_game_active:
-		if start_ui:
-			start_ui.hide()
-
-	else:
-		if start_ui:
-			start_ui.show()
-			GameState.setup_start_ui(start_ui)
-		else:
-			GameState.is_game_active = true
-
+	if is_multiplayer_authority():
+		WorldManager.local_player = self
 	call_deferred("_play_start_idle")
 	return
 
@@ -54,6 +63,8 @@ func _play_start_idle():
 
 
 func _physics_process(_delta):
+	
+	
 	if not GameState.is_game_active:
 		velocity = Vector2.ZERO
 		if not anim.is_playing() or anim.animation != "front_idle":
@@ -63,6 +74,9 @@ func _physics_process(_delta):
 	if GameState.is_paused:
 		velocity = Vector2.ZERO
 		return
+	
+	# authority check
+	if !is_multiplayer_authority(): return
 	
 	var input_dir = Vector2(
 		Input.get_action_strength("ui_right") - Input.get_action_strength("ui_left"),
@@ -93,8 +107,7 @@ func _process(_delta):
 	if can_interact and Input.is_action_just_pressed("interact"):
 		interact_label.visible = false
 		can_interact = false
-		WorldManager.change_scene("res://Scenes/World/Buildings/Acad_building/ab_inside.tscn")
-
+	
 
 
 func play_anim(moving: bool):

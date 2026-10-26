@@ -292,6 +292,20 @@ animations = [{
 radius = 11.0
 height = 38.0
 
+[sub_resource type="SceneReplicationConfig" id="SceneReplicationConfig_eo61r"]
+properties/0/path = NodePath(".:position")
+properties/0/spawn = true
+properties/0/replication_mode = 1
+properties/1/path = NodePath("AnimatedSprite2D:animation")
+properties/1/spawn = true
+properties/1/replication_mode = 1
+properties/2/path = NodePath("AnimatedSprite2D:flip_h")
+properties/2/spawn = true
+properties/2/replication_mode = 1
+properties/3/path = NodePath(".:curr_scene")
+properties/3/spawn = true
+properties/3/replication_mode = 1
+
 [node name="player" type="CharacterBody2D" unique_id=2069761242]
 z_index = 3
 y_sort_enabled = true
@@ -321,6 +335,60 @@ offset_bottom = -10.0
 text = "Press E to enter"
 metadata/_edit_use_anchors_ = true
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1663726821]
+[node name="Hitbox" type="CollisionShape2D" parent="." unique_id=1663726821]
 position = Vector2(1, 15)
 shape = SubResource("CapsuleShape2D_eo61r")
+
+[node name="MultiplayerSynchronizer" type="MultiplayerSynchronizer" parent="." unique_id=524681028]
+replication_config = SubResource("SceneReplicationConfig_eo61r")
+
+[node name="StartUI" type="CanvasLayer" parent="." unique_id=1351773631]
+visible = false
+
+[node name="Continue_button" type="Button" parent="StartUI" unique_id=1121417505]
+offset_left = 379.0
+offset_top = 57.999992
+offset_right = 474.00003
+offset_bottom = 89.0
+text = "Continue"
+
+[node name="New_game_button" type="Button" parent="StartUI" unique_id=2105752645]
+offset_left = 380.0
+offset_top = 98.0
+offset_right = 474.00003
+offset_bottom = 129.0
+text = "New Game"
+
+[node name="Quitbutton" type="Button" parent="StartUI" unique_id=1780377472]
+offset_left = 379.0
+offset_top = 139.0
+offset_right = 474.0
+offset_bottom = 170.0
+text = "Quit"
+
+[node name="PauseUI" type="CanvasLayer" parent="." unique_id=1576782188]
+visible = false
+
+[node name="Quitbutton" type="Button" parent="PauseUI" unique_id=1893154430]
+process_mode = 3
+offset_left = 375.0
+offset_top = 227.0
+offset_right = 465.0
+offset_bottom = 258.0
+text = "Quit"
+
+[node name="Continuebutton" type="Button" parent="PauseUI" unique_id=1544134046]
+process_mode = 3
+offset_left = 374.0
+offset_top = 191.0
+offset_right = 467.0
+offset_bottom = 222.0
+text = "Continue"
+
+[node name="Savebutton" type="Button" parent="PauseUI" unique_id=1526758473]
+process_mode = 3
+offset_left = 373.0
+offset_top = 156.0
+offset_right = 467.0
+offset_bottom = 187.0
+text = "Save Game"

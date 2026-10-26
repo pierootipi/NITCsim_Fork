@@ -3,7 +3,6 @@
 [ext_resource type="Script" uid="uid://kng6oyyha0mf" path="res://Scenes/playable_scene.gd" id="1_p60jf"]
 [ext_resource type="Texture2D" uid="uid://dokkuspvcrc8d" path="res://Assets/World/Sample.png" id="1_r8opg"]
 [ext_resource type="Texture2D" uid="uid://c5n5qvms48yww" path="res://Assets/sprite/Tilemap/tilemap_packed.png" id="2_7ujdm"]
-[ext_resource type="PackedScene" uid="uid://bhe6171ekahue" path="res://Scenes/player/player.tscn" id="3_7ujdm"]
 [ext_resource type="Script" uid="uid://d86btchlufxu" path="res://Mechanics/interaction/interaction_box.gd" id="4_touke"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_touke"]
@@ -2885,33 +2884,6 @@ tile_set = SubResource("TileSet_wfqjj")
 position = Vector2(-43, 2)
 polygon = PackedVector2Array(45, 1, 490, -1, 490, 270, 45, 269, 44, 3, 35, -1, 36, 278, 508, 274, 509, -12, 36, -3)
 
-[node name="PauseUI" type="CanvasLayer" parent="." unique_id=1745639325]
-visible = false
-
-[node name="Quitbutton" type="Button" parent="PauseUI" unique_id=2012177985]
-process_mode = 3
-offset_left = 375.0
-offset_top = 227.0
-offset_right = 465.0
-offset_bottom = 258.0
-text = "Quit"
-
-[node name="Continuebutton" type="Button" parent="PauseUI" unique_id=859285941]
-process_mode = 3
-offset_left = 374.0
-offset_top = 191.0
-offset_right = 467.0
-offset_bottom = 222.0
-text = "Continue"
-
-[node name="Savebutton" type="Button" parent="PauseUI" unique_id=1899555473]
-process_mode = 3
-offset_left = 373.0
-offset_top = 156.0
-offset_right = 467.0
-offset_bottom = 187.0
-text = "Save Game"
-
 [node name="AB_Door1" type="Area2D" parent="." unique_id=1115343732]
 script = ExtResource("4_touke")
 target_scene_path = "uid://cm6vn8u6113m3"
@@ -2924,8 +2896,5 @@ shape = SubResource("RectangleShape2D_gskfx")
 
 [node name="ab_inside_Door1" type="Marker2D" parent="AB_Door1" unique_id=1477636698]
 position = Vector2(280, 223)
-
-[node name="player" parent="." unique_id=2069761242 instance=ExtResource("3_7ujdm")]
-position = Vector2(360, 109)
 
 [connection signal="body_entered" from="AB_Door1" to="AB_Door1" method="_on_body_entered"]

@@ -1,3 +1,16 @@
 [gd_scene format=3 uid="uid://cjuy28kiojv0u"]
 
+[ext_resource type="PackedScene" uid="uid://dmen0ik6q50v4" path="res://UI/NetworkUI.tscn" id="1_xkndl"]
+[ext_resource type="Script" uid="uid://cepx8vqglkksm" path="res://Mechanics/Multiplayer/multiplayer_spawner.gd" id="2_u44n3"]
+[ext_resource type="PackedScene" uid="uid://bhe6171ekahue" path="res://Scenes/player/player.tscn" id="3_u44n3"]
+
 [node name="Game" type="Node2D" unique_id=468786550]
+
+[node name="MultiplayerSpawner" type="MultiplayerSpawner" parent="." unique_id=503129087]
+_spawnable_scenes = PackedStringArray("uid://bhe6171ekahue")
+spawn_path = NodePath("/root/WorldManager/Players")
+script = ExtResource("2_u44n3")
+network_player = ExtResource("3_u44n3")
+
+[node name="NetworkUI" parent="." unique_id=352969037 instance=ExtResource("1_xkndl")]
+z_index = 10
